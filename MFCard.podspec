@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
     s.name             = 'MFCard'
-    s.version          = '1.2.6'
+    s.version          = '1.2.7'
     s.summary          = 'Fantastic Credit Card View'
     s.license          = 'MIT'
     s.author           = {'Rahul Chandnani' => 'rahulchandnani@my.com', 'Arpan Desai' => 'arpan@mobilefirst.in'}
 
-    s.source           = { :git => 'https://github.com/MobileFirstInc/MFCard.git' , :tag => '1.2.6'}
+    s.source           = { :git => 'https://github.com/gapoj/MFCard.git' , :tag => '1.2.7'}
 
     s.homepage = 'https://www.mobilefirst.in'
     s.platform     = :ios, '8.0'
