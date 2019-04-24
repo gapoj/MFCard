@@ -15,7 +15,7 @@ YOoo, Now MFCard is on Swift 4.
 
 *Swift 5.0 (Xcode 10.2)*
 ```ruby
-pod 'MFCard', :source => 'https://github.com/gapoj/MFCard.git'
+pod 'MFCard', :git => 'https://github.com/gapoj/MFCard.git'
 ```
 *Or you can choose version for Swift 4*
 ```ruby
