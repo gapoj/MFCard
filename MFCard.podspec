@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
     s.name             = 'MFCard'
-    s.version          = '1.2.7'
+    s.version          = '1.2.8'
     s.summary          = 'Fantastic Credit Card View'
     s.license          = 'MIT'
     s.author           = {'Rahul Chandnani' => 'rahulchandnani@my.com', 'Arpan Desai' => 'arpan@mobilefirst.in'}
 
-    s.source           = { :git => 'https://github.com/gapoj/MFCard.git' , :tag => '1.2.7'}
+    s.source           = { :git => 'https://github.com/gapoj/MFCard.git' , :tag => '1.2.8'}
 
     s.homepage = 'https://www.mobilefirst.in'
     s.platform     = :ios, '8.0'
@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
     'MFCard' => ['MFCard/**/*.{xib,xcassets,json,imageset,png,jpg}']
     }
     s.frameworks = 'UIKit', 'Foundation'
-    s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3' }
+    s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5' }
 end
