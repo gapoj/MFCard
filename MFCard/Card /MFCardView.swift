@@ -514,6 +514,11 @@ extension MFCardDelegate{
         
                 func setImageWithAnnimation(_ image:UIImage?,cardType:CardType){
                     addedCardType = cardType
+                    if addedCardType == CardType.Amex {
+                        txtCvc.placeholder      = "####"
+                    }else{
+                        txtCvc.placeholder      = "###"
+                    }
                     if image != cardTypeImage.image {
                         UIView.transition(with: self.cardTypeImage, duration: 0.3, options: cardTypeAnimation, animations: {
                             self.cardTypeImage.image = image
@@ -532,7 +537,7 @@ extension MFCardDelegate{
                     break
         
                 case CardType.Amex.rawValue:
-                    setImageWithAnnimation(UIImage(named: "Amex", in: mfBundel!,compatibleWith: nil),cardType: CardType.MasterCard)
+                    setImageWithAnnimation(UIImage(named: "Amex", in: mfBundel!,compatibleWith: nil),cardType: CardType.Amex)
                     break
                 
                 case CardType.JCB.rawValue:
@@ -733,7 +738,7 @@ extension MFCardView: UITextFieldDelegate{
             changeCardType()
         }
         if textField == txtCvc {
-            if (textField.text?.count)! >= 3 {
+        if ((textField.text?.count)! >= 3 && addedCardType != CardType.Amex) || ((textField.text?.count)! >= 4 && addedCardType == CardType.Amex) {
                 self.unHideDoneButton()
                 textField.resignFirstResponder()
             }else{
@@ -748,7 +753,7 @@ extension MFCardView: UITextFieldDelegate{
     public func textFieldDidEndEditing(_ textField: UITextField) {
         
         if textField == txtCvc {
-            if (textField.text?.count)! >= 3 {
+            if ((textField.text?.count)! >= 3 && addedCardType != CardType.Amex) || ((textField.text?.count)! >= 4 && addedCardType == CardType.Amex) {
                 self.unHideDoneButton()
             }else{
                 self.hideDoneButton()
@@ -770,7 +775,10 @@ extension MFCardView: UITextFieldDelegate{
                 return true
             }
         }else{
-            let charLimit = 3
+            var charLimit = 3
+            if addedCardType == CardType.Amex{
+                charLimit = 4
+            }
             let currentLength = (textField.text?.count)! + string.count - range.length
             let newLength = charLimit - currentLength
             if newLength < 0 {
